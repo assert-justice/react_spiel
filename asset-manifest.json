@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.2d6289c3.css",
-    "main.js": "/static/js/main.c01bef1e.js",
-    "index.html": "/index.html",
-    "main.2d6289c3.css.map": "/static/css/main.2d6289c3.css.map",
-    "main.c01bef1e.js.map": "/static/js/main.c01bef1e.js.map"
+    "main.css": "/react_spiel/static/css/main.2d6289c3.css",
+    "main.js": "/react_spiel/static/js/main.c01bef1e.js",
+    "index.html": "/react_spiel/index.html",
+    "main.2d6289c3.css.map": "/react_spiel/static/css/main.2d6289c3.css.map",
+    "main.c01bef1e.js.map": "/react_spiel/static/js/main.c01bef1e.js.map"
   },
   "entrypoints": [
     "static/css/main.2d6289c3.css",
