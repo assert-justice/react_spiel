@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { useState } from "react";
+import Nav from "./Nav";
+import Home from "./Home";
+import Search from "./Search";
+import Favorites from "./Favorites";
+import DrinkForm from "./Drink/DrinkForm";
+import NotFound from "./NotFound";
 
 function App() {
+  const [favorites, setFavorites] = useState({});
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // function addFavorite(drink){
+  //   setFavorites({...favorites, [drink.id]: drink});
+  // }
+  function removeFavorite(drinkId){
+    const fav = {...favorites};
+    delete fav[drinkId];
+    setFavorites(fav);
+  }
+  function addFavorite(drink){
+    const fav = {...favorites};
+    fav[drink.id] = drink;
+    setFavorites(fav);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/search" element={<Search 
+          favorites={favorites}
+          addFavorite={addFavorite}
+          removeFavorite={removeFavorite}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />}/>
+        <Route path="/favorites" element={<Favorites 
+          favorites={favorites}
+          removeFavorite={removeFavorite}
+        />}/>
+        <Route path="/drink" element={<DrinkForm favorites={favorites} addFavorite={addFavorite}/>}/>
+        <Route path="/drink/:drinkId" element={<DrinkForm favorites={favorites} addFavorite={addFavorite}/>}/>
+        <Route path="*" element={<NotFound/>}/>
+      </Routes>
     </div>
   );
 }
