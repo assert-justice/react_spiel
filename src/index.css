@@ -80,7 +80,7 @@ button{
         padding-left: 10%;
         padding-right: 10%;
     }
-    /* input{
-        width: auto;
-    } */
+    .thumbnail{
+        width: 20%;
+    }
 }

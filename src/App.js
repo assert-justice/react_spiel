@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Nav from "./Nav";
 import Home from "./Home";
@@ -29,6 +29,7 @@ function App() {
       <Nav/>
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/react_spiel" element={<Navigate replace to={"/"}/>}/>
         <Route path="/search" element={<Search 
           favorites={favorites}
           addFavorite={addFavorite}
@@ -40,7 +41,8 @@ function App() {
           favorites={favorites}
           removeFavorite={removeFavorite}
         />}/>
-        <Route path="/drink/*" element={<DrinkForm favorites={favorites} addFavorite={addFavorite}/>}/>
+        <Route path="/drink/" element={<DrinkForm favorites={favorites} addFavorite={addFavorite}/>}/>
+        <Route path="/drink/:drinkId" element={<DrinkForm favorites={favorites} addFavorite={addFavorite}/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
