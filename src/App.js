@@ -40,8 +40,7 @@ function App() {
           favorites={favorites}
           removeFavorite={removeFavorite}
         />}/>
-        <Route path="/drink" element={<DrinkForm favorites={favorites} addFavorite={addFavorite}/>}/>
-        <Route path="/drink/:drinkId" element={<DrinkForm favorites={favorites} addFavorite={addFavorite}/>}/>
+        <Route path="/drink/*" element={<DrinkForm favorites={favorites} addFavorite={addFavorite}/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
