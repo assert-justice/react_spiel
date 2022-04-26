@@ -8,7 +8,7 @@ To facilitate this we'll be using the api [here](https://www.thecocktaildb.com/a
 ## Setup
 Before we can go mucking around we need to create a react app. Ideally you will create a directory that is a base react template. You can make it just how you like and then copy paste that directory whenever you want to create a new app. Let's start from the beginning though.
 ### Installation
-There are a few ways to do this but the most user friendly is to use the npx script that out Facebook overlords have granted us.
+There are a few ways to do this but the most user friendly is to use the npx script that our Facebook overlords have granted us.
 
 `npx create-react-app [your app name]`
 
@@ -103,3 +103,11 @@ Let's add some state to our app. We'll be keeping track of the users favorite re
 ## That useEffect Jawn
 
 ## Now What?
+
+TODOS:
+Add image to homepage
+Style homepage and search page
+Make search clear when you leave and come back
+Label ingredients and move them above the description
+Sort api results
+Focus on search bar

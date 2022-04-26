@@ -11,9 +11,6 @@ function App() {
   const [favorites, setFavorites] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
 
-  // function addFavorite(drink){
-  //   setFavorites({...favorites, [drink.id]: drink});
-  // }
   function removeFavorite(drinkId){
     const fav = {...favorites};
     delete fav[drinkId];
@@ -29,7 +26,7 @@ function App() {
       <Nav/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/react_spiel" element={<Navigate replace to={"/"}/>}/>
+        {/* <Route path="/react_spiel" element={<Navigate replace to={"/"}/>}/> */}
         <Route path="/search" element={<Search 
           favorites={favorites}
           addFavorite={addFavorite}
