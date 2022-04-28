@@ -9,7 +9,6 @@ import NotFound from "./NotFound";
 
 function App() {
   const [favorites, setFavorites] = useState({});
-  const [searchTerm, setSearchTerm] = useState("");
 
   function removeFavorite(drinkId){
     const fav = {...favorites};
@@ -31,8 +30,6 @@ function App() {
           favorites={favorites}
           addFavorite={addFavorite}
           removeFavorite={removeFavorite}
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
         />}/>
         <Route path="/favorites" element={<Favorites 
           favorites={favorites}

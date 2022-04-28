@@ -26,7 +26,11 @@ export default function DrinkForm({favorites, addFavorite}){
     const navigate = useNavigate();
 
     function changeField(e){
-        setDrink({...drink, [e.target.name]: e.target.value});
+        let {name, value} = e.target;
+        if(name === "alcoholic"){
+            value = !value?"Alcoholic":"Non Alcoholic";
+        }
+        setDrink({...drink, [name]: value});
     }
 
     function handleSubmit(){
@@ -59,11 +63,9 @@ export default function DrinkForm({favorites, addFavorite}){
         <input id="image" name="thumbnail" type={"url"} value={drink.thumbnail} onChange={changeField}/> <br/>
         <label htmlFor="glass">Glass:</label>
         <input id="glass" name="glass" type={"text"} value={drink.glass} onChange={changeField}/> <br/>
-        <label htmlFor="instructions">Instructions:</label> <br/>
-        <textarea id="instructions" name="instructions" rows="10" cols="30" value={drink.instructions} onChange={changeField}/> <br/>
-        <label htmlFor="alcoholic">Alcoholic:</label>
-        <input id="alcoholic" name="alcoholic" type={"text"} value={drink.alcoholic} onChange={changeField}/> <br/>
+        <label>Ingredients:</label>
         <div className="ingredients">
+            { drink.ingredients.length > 0?
             <ul>
                 {drink.ingredients.map((ing, idx) => {
                     return <li key = {idx}>
@@ -79,10 +81,16 @@ export default function DrinkForm({favorites, addFavorite}){
                             onChange={(e)=>editIngredient(e, idx)}/>
                     </li>
                 })}
-            </ul>
-            <button onClick={addIngredient}>Add</button>
+            </ul>:
+            <p>Add some ingredients!</p>
+            }
+            <button onClick={addIngredient}>Add Ingredient</button>
             <button onClick={removeIngredient}>Remove</button>
         </div>
+        <label htmlFor="instructions">Instructions:</label> <br/>
+        <textarea id="instructions" name="instructions" rows="10" cols="30" value={drink.instructions} onChange={changeField}/> <br/>
+        <label htmlFor="alcoholic">Alcoholic:</label>
+        <input id="alcoholic" name="alcoholic" type={"checkbox"} value={drink.alcoholic === "Alcoholic"} onChange={changeField}/> <br/>
         <button onClick={handleSubmit}>Submit</button>
         {/* <input type={"submit"} value="Submit"/> */}
     </form>

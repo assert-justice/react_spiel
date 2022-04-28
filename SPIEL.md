@@ -98,16 +98,33 @@ Now we need to create the routes. This is slightly different in React v6.
 
 Let's add some state to our app. We'll be keeping track of the users favorite recipes as an array of objects. Let's add it to app.
 
+```javascript
+const [favorites, setFavorites] = useState({});
+
+function removeFavorite(drinkId){
+  const fav = {...favorites};
+  delete fav[drinkId];
+  setFavorites(fav);
+}
+function addFavorite(drink){
+  const fav = {...favorites};
+  fav[drink.id] = drink;
+  setFavorites(fav);
+}
+```
+
+A few things to note:
+
+When we call use state we pass it a default value to start with. In this case an empty object.
+
+The useState hook returns an array with two entries. The first is the current value of the state. The second is a function we can use to set the state to a new value.
+
+> Note: it's very important not to mutate the value in state directly. You'll see in the code I'm always creating a new object by using the spread operator. If you don't set the state to a new value react can get confused and not render the page correctly.
+
+We have two helper functions to add and remove drinks from the favorites object. Note that the addFavorite function will overwrite an entry that already exists, allowing us to edit an existing entry.
+
 ## Forms managed components, sharing components
 
 ## That useEffect Jawn
 
 ## Now What?
-
-TODOS:
-Add image to homepage
-Style homepage and search page
-Make search clear when you leave and come back
-Label ingredients and move them above the description
-Sort api results
-Focus on search bar
