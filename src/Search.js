@@ -13,6 +13,15 @@ export default function Search({favorites, addFavorite, removeFavorite}){
         }
     },[searchTerm]);
 
+    // function search(term){
+    //     setSearchTerm(term);
+    //     if(term.length > 0){
+    //         getRecipes(term).then(setResults);
+    //     } else{
+    //         setResults([]);
+    //     }
+    // }
+
     return <div className = "search">
         <label htmlFor="search-text">Search</label>
         <input id="search-text" 

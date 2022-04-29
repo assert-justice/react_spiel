@@ -123,8 +123,16 @@ The useState hook returns an array with two entries. The first is the current va
 
 We have two helper functions to add and remove drinks from the favorites object. Note that the addFavorite function will overwrite an entry that already exists, allowing us to edit an existing entry.
 
+## That useEffect Jawn
+
+The finest foot-gun in react has to be useEffect. It's got all sorts of thorny bits. Let's take a look at the search component. Take a look ath that handsome devil.
+
+Now it's worth pointing out we don't *have* to use useEffect. I wrote a search function to demonstrate.
+
+So use effect will call the function we pass it when the component mounts *or* the value of one of the dependencies. I dunno this hook is bonkers, it has too many jobs. But what are you gonna do?
+
 ## Forms managed components, sharing components
 
-## That useEffect Jawn
+
 
 ## Now What?
